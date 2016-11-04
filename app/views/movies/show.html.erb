@@ -10,3 +10,6 @@
 	<p>
 		Rating: <%= @movie.rating %>
 	</p>
+
+	<%= link_to "Edit this movie review", edit_movie_path(@movie) %> |
+ 	<%= link_to "Back to movies listing", movies_path %>

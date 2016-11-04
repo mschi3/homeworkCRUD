@@ -1,4 +1,4 @@
-<h1>Edit existing article</h1>
+<h1>Edit Movie Review</h1>
 
 <% if @movie.errors.any? %>
 <h2>Please correct first the error below to proceed</h2>
@@ -31,3 +31,5 @@
 </p>
 
 <% end %>
+
+<%= link_to "Back to movies listing", movies_path %>

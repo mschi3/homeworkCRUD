@@ -1,0 +1,22 @@
+<h1>List of Movies</h1>
+
+<p>
+<%= link_to "Create New Movie Review", new_movie_path %>
+</p>
+
+<table>
+	<tr>
+		<th>Title</th>
+		<th>Description</th>
+	</tr>
+	<% @movies.each do |m| %>
+	<tr>
+		<td><%= m.title %></td>
+		<td><%= m.description %></td>
+		<td><%= m.rating %></td>
+		<td><%= link_to 'Edit', edit_movie_path(m)%></td>
+		<td>|</td>
+		<td><%= link_to 'Show', movie_path(m) %></td>
+	</tr>
+	<% end %>
+</table>
