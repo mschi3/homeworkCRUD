@@ -4,14 +4,35 @@ class MoviesController < ApplicationController
 		@movie = Movie.new
 	end
 
-
-
 	def create
 		@movie = Movie.new(movie_params)
-		@movie.save
-		#redirect_to movie_path(@movie)
-		redirect_to :action => :show, :id => @movie
+		if @movie.save(movie_params)
+			flash[:notice] = "Movie Review was successfully created"
+			#redirect_to :action => :index
+			redirect_to movie_path(@movie)
+		else
+			render :action => :new
+		end	
 	end
+  
+  def show
+		@movie = Movie.find(params[:id])
+	end
+
+	def edit
+		@movie = Movie.find(params[:id])
+	end
+
+	def update
+		@movie = Movie.find(params[:id])
+	if @movie.update(movie_params)
+		flash[:notice] = "Movie Review was successfully updated"
+		redirect_to movie_path(@movie)
+	else
+		render 'edit'
+	end
+
+end
 
 	private
 
