@@ -4,7 +4,7 @@
 <%= link_to "Create New Movie Review", new_movie_path %>
 </p>
 
-<table>
+<table cellspacing="10"> 
 	<tr>
 		<th>Title</th>
 		<th>Description</th>
@@ -17,6 +17,9 @@
 		<td><%= link_to 'Edit', edit_movie_path(m)%></td>
 		<td>|</td>
 		<td><%= link_to 'Show', movie_path(m) %></td>
+		<td>|</td>
+		<td><%= link_to 'Delete', movie_path(m), method: :delete, data: {confirm: "Are you sure?"} %>
+		</td>
 	</tr>
 	<% end %>
 </table>
