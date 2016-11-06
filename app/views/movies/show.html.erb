@@ -1,15 +1,20 @@
-<h1>Showing selected Movie</h1>
-	<p>
-		Title: <%= @movie.title %>
-	</p>
+<h2 align="center">Title: <%= @movie.title %></h2>
 
-	<p>
-		Description: <%= @movie.description %>
-	</p>
+<div class="well col-xs-8 col-xs-offset-2">
 
-	<p>
-		Rating: <%= @movie.rating %>
-	</p>
+	<h4 class="center margintop"><strong>Description:</strong></h4>
+	<%= simple_format(@movie.description) %>
 
-	<%= link_to "Edit this movie review", edit_movie_path(@movie) %> |
- 	<%= link_to "Back to movies listing", movies_path %>
+	<h4 class="center margintop"><strong>Rating:</strong></h4>
+	<%= simple_format(@movie.rating.to_s) %>
+
+	<div class="movie-actions">
+
+		<%= link_to "Edit this movie review", edit_movie_path(@movie), class: "btn btn-xs btn-primary" %>
+		<%= link_to "View all movie review", movies_path, class: "btn btn-xs btn-success" %>
+		<%= link_to "Delete this movie review", movie_path(@movie), method: :delete,
+		data: { confirm: "Are you sure you want to delete the movie review?"},
+		class: "btn btn-xs btn-danger" %>
+	</div>
+
+</div>
